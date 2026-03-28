@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors;
+  }
+  
+  .btn-success {
+    @apply bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6;
+  }
+}
+
+/* frontend/src/index.css - Add these styles at the end */
+
+/* Header Animations */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+nav {
+    animation: slideDown 0.5s ease-out;
+}
+
+/* Hover effects for nav links */
+nav a {
+    position: relative;
+    overflow: hidden;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::before {
+    width: 80%;
+}
+
+/* Active link indicator */
+nav a.active::before {
+    width: 80%;
+    background-color: white;
+}
+
+/* Logo pulse animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.group:hover .group-hover\:scale-110 {
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* Mobile menu animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.md\:hidden div {
+    animation: fadeIn 0.3s ease-out;
+}
+
+
+/* frontend/src/index.css - Add these styles */
+
+/* Kitchen Display Specific Styles */
+.hover\:scale-102:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+/* Large screen optimizations */
+@media (min-width: 1920px) {
+    .kitchen-card {
+        font-size: 1.2rem;
+    }
+}
+
+/* Touch-friendly buttons */
+button:active {
+    transform: scale(0.98);
+}
+
+/* Smooth transitions */
+.transition {
+    transition: all 0.2s ease;
+}
+
+/* Fullscreen mode optimizations */
+:-webkit-full-screen {
+    background-color: #111827;
+}
+
+:fullscreen {
+    background-color: #111827;
+}
